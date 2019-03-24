@@ -12,8 +12,6 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button dugme;
-    private EditText tekst;
     private ListView lista;
 
     @Override
@@ -21,23 +19,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dugme = (Button)findViewById(R.id.button);
-        tekst = (EditText) findViewById(R.id.editText);
-        lista = (ListView)findViewById(R.id.listView);
+        lista = (ListView) findViewById(R.id.simpleListView);
 
-        final ArrayList<String> unosi = new ArrayList<String>();
-        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.element_liste,R.id.Itemname,unosi);
+        final ArrayList<Muzicar> unosi = new ArrayList<>();
+        unosi.add(new Muzicar("Bakir","Sabljica", Muzicar.Zanr.ROCK));
+        unosi.add(new Muzicar("Keba","Sabljica", Muzicar.Zanr.POP));
+        unosi.add(new Muzicar("Bake","Sabljica", Muzicar.Zanr.FOLK));
+        unosi.add(new Muzicar("Kirba","Sabljica", Muzicar.Zanr.RAP));
+        unosi.add(new Muzicar("Kebinjo","Sabljica", Muzicar.Zanr.JAZZ));
 
-        lista.setAdapter(adapter);
-
-        dugme.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                unosi.add(0,tekst.getText().toString());
-                adapter.notifyDataSetChanged();
-                tekst.setText("");
-            }
-        });
+        MyAdapter myAdapter=new MyAdapter(this,R.layout.element_liste,unosi);
+        lista.setAdapter(myAdapter);
 
     }
 
