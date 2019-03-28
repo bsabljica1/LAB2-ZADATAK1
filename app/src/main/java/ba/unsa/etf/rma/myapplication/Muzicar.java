@@ -3,6 +3,7 @@ package ba.unsa.etf.rma.myapplication;
 public class Muzicar {
     private String ime;
     private String prezime;
+    private String biografija;
 
     public enum  Zanr {
 
@@ -22,10 +23,11 @@ public class Muzicar {
     }
     private Zanr zanr;
 
-    Muzicar (String ime, String prezime, Zanr zanr) {
+    Muzicar (String ime, String prezime, Zanr zanr, String biografija) {
         this.ime=ime;
         this.prezime=prezime;
         this.zanr=zanr;
+        this.biografija=biografija;
     }
 
     public String getIme() {
@@ -40,6 +42,10 @@ public class Muzicar {
         return zanr;
     }
 
+    public String getBiografija() {
+        return biografija;
+    }
+
     public void setIme(String ime) {
         this.ime = ime;
     }
@@ -50,5 +56,9 @@ public class Muzicar {
 
     public void setZanr(Zanr zanr) {
         this.zanr = zanr;
+    }
+
+    public void setBiografija(String biografija) {
+        this.biografija = biografija;
     }
 }
