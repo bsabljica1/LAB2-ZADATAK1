@@ -24,11 +24,11 @@ public class MainActivity extends AppCompatActivity {
         lista = (ListView) findViewById(R.id.simpleListView);
 
         final ArrayList<Muzicar> unosi = new ArrayList<>();
-        unosi.add(new Muzicar("Bijelo","Dugme", Muzicar.Zanr.ROCK,"AAAA"));
-        unosi.add(new Muzicar("Lana","Jurcevic", Muzicar.Zanr.POP,"AAAA"));
-        unosi.add(new Muzicar("Himzo","Polovina", Muzicar.Zanr.FOLK,"AAAA"));
-        unosi.add(new Muzicar("Buba","Corelli", Muzicar.Zanr.RAP,"AAAA"));
-        unosi.add(new Muzicar("Ray","Charles", Muzicar.Zanr.JAZZ,"AAAA"));
+        unosi.add(new Muzicar("Bijelo","Dugme", Muzicar.Zanr.ROCK,"AAAA","https://hr.wikipedia.org/wiki/Bijelo_dugme"));
+        unosi.add(new Muzicar("Lana","Jurcevic", Muzicar.Zanr.POP,"AAAA","https://hr.wikipedia.org/wiki/Lana_Jurčević"));
+        unosi.add(new Muzicar("Himzo","Polovina", Muzicar.Zanr.FOLK,"AAAA","https://bs.wikipedia.org/wiki/Himzo_Polovina"));
+        unosi.add(new Muzicar("Buba","Corelli", Muzicar.Zanr.RAP,"AAAA","https://hr.wikipedia.org/wiki/Buba_Corelli"));
+        unosi.add(new Muzicar("Ray","Charles", Muzicar.Zanr.JAZZ,"AAAA","https://hr.wikipedia.org/wiki/Ray_Charles"));
 
         MyAdapter myAdapter=new MyAdapter(this,R.layout.element_liste,unosi);
         lista.setAdapter(myAdapter);
@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 myIntent.putExtra("imeAutora", unosi.get(position).getIme());
                 myIntent.putExtra("prezimeAutora", unosi.get(position).getPrezime());
                 myIntent.putExtra("zanrAutora", unosi.get(position).getZanr().getImeZanra());
+                myIntent.putExtra("webAutora", unosi.get(position).getWebStranica());
                   MainActivity.this.startActivity(myIntent);}});
         }
 

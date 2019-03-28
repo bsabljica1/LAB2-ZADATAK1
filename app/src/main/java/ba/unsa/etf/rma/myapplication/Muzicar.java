@@ -4,6 +4,7 @@ public class Muzicar {
     private String ime;
     private String prezime;
     private String biografija;
+    private String webStranica;
 
     public enum  Zanr {
 
@@ -11,7 +12,7 @@ public class Muzicar {
 
         private String imeZanra;
 
-        private Zanr(String s)  //kostruktor enuma ne moze primati enum
+        private Zanr(String s)
         {
             imeZanra = s;
         }
@@ -23,11 +24,12 @@ public class Muzicar {
     }
     private Zanr zanr;
 
-    Muzicar (String ime, String prezime, Zanr zanr, String biografija) {
+    Muzicar (String ime, String prezime, Zanr zanr, String biografija, String webStranica) {
         this.ime=ime;
         this.prezime=prezime;
         this.zanr=zanr;
         this.biografija=biografija;
+        this.webStranica=webStranica;
     }
 
     public String getIme() {
@@ -46,6 +48,10 @@ public class Muzicar {
         return biografija;
     }
 
+    public String getWebStranica() {
+        return webStranica;
+    }
+
     public void setIme(String ime) {
         this.ime = ime;
     }
@@ -60,5 +66,9 @@ public class Muzicar {
 
     public void setBiografija(String biografija) {
         this.biografija = biografija;
+    }
+
+    public void setWebStranica(String webStranica) {
+        this.webStranica = webStranica;
     }
 }
